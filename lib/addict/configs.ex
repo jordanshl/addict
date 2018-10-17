@@ -20,15 +20,16 @@ defmodule Addict.Configs do
     :email_reset_password_template,
     :reset_password_path,
     :repo,
-    :password_reset_token_time_to_expiry
-  ] |> Enum.each(fn key ->
-         def unquote(key)() do
-          Application.get_env(:addict, unquote(key))
-         end
-       end)
+    :password_reset_token_time_to_expiry,
+    :mailer_module
+  ]
+  |> Enum.each(fn key ->
+    def unquote(key)() do
+      Application.get_env(:addict, unquote(key))
+    end
+  end)
 
   def password_hasher do
     Application.get_env(:addict, :password_hasher, Comeonin.Pbkdf2)
   end
-
 end
