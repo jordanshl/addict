@@ -30,10 +30,9 @@ defmodule Addict.Interactors.ResetPassword do
     result =
       case data do
         [generation_time, user_id, pwd_reset_counter] ->
-          id = String.to_integer(user_id)
           counter = String.to_integer(pwd_reset_counter)
 
-          case GetUserById.call(id) do
+          case GetUserById.call(user_id) do
             {:ok, %{pwd_reset_counter: ^counter} = user} ->
               {:ok, String.to_integer(generation_time), user}
 
