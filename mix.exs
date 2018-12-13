@@ -27,13 +27,14 @@ defmodule Addict.Mixfile do
 
   defp deps do
     [
-      {:cowboy, "~> 1.0"},
-      {:phoenix, "~> 1.1"},
-      {:ecto, "~> 2.0"},
+      {:plug_cowboy, "~> 2.0"},
+      {:plug, "~> 1.7"},
+      {:phoenix, "~> 1.4"},
+      {:ecto_sql, "~> 3.0"},
       {:comeonin, "~> 2.1"},
-      {:mailgun, "~> 0.1"},
-      {:mock, "~> 0.1.3", only: :test},
-      {:postgrex, "~> 0.11", only: :test},
+      {:mailgun, github: "chrismccord/mailgun", branch: "master"},
+      {:mock, "~> 0.3.0", only: :test},
+      {:postgrex, "~> 0.14", only: :test},
       {:earmark, "~> 0.2", only: :dev},
       {:ex_doc, "~> 0.11", only: :dev}
     ]
