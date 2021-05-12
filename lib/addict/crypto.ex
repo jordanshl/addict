@@ -7,7 +7,7 @@ Signs and verifies text
   Sign `plaintext` with a `key`
   """
   def sign(plaintext, key \\ Addict.Configs.secret_key) do
-    :crypto.hmac(:sha512, key, plaintext) |> Base.encode16
+    :crypto.mac(:hmac, :sha512, key, plaintext) |> Base.encode16
   end
 
   @doc """
